@@ -1,0 +1,30 @@
+.wrapper {
+  font-size: 18px;
+  color: white;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  @media (min-width: 768px) {
+    flex-direction: row;
+  }
+  @media (min-width: 1280px) {
+    font-size: 24px;
+  }
+}
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  text-align: start;
+}
+
+.genres {
+  display: flex;
+  flex-wrap: nowrap;
+
+  gap: 10px;
+}
+.img {
+  width: 400px;
+}

@@ -1,0 +1,12 @@
+.notification {
+  width: 100%;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  text-align: center;
+  color: var(--accent-color);
+  background-color: grey;
+  border: 6px solid red;
+}
+.icon {
+  font-size: 50px;
+}

@@ -1,0 +1,28 @@
+.section {
+  position: relative;
+  width: 100vw;
+  padding: 0px 0px 85px 0px;
+}
+.container {
+  width: 320px;
+  padding: 0px 20px;
+  margin: 20px auto;
+}
+
+@media (min-width: 360px) {
+  .container {
+    width: 360px;
+  }
+}
+@media (min-width: 768px) {
+  .container {
+    width: 768px;
+    padding: 0px 32px;
+  }
+}
+@media (min-width: 1280px) {
+  .container {
+    width: 1280px;
+    padding: 0px 40px;
+  }
+}

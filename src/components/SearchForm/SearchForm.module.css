@@ -1,0 +1,31 @@
+.searchform {
+  display: flex;
+  justify-content: start;
+  padding: 20px 0px;
+}
+.input {
+  outline: none;
+  font-size: 18px;
+  padding: 15px;
+  width: 250px;
+  border: 5px solid var(--background-accent);
+}
+.button {
+  align-content: center;
+  text-align: center;
+  width: 80px;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+  border: 5px solid var(--background-accent);
+  background-color: var(--background-accent);
+  cursor: pointer;
+}
+.icon {
+  font-size: 30px;
+  color: white;
+  transition: scale var(--animation-mode);
+}
+.button:hover .icon,
+.button:focus .icon {
+  scale: 1.2;
+}

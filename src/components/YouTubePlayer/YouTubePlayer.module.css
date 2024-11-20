@@ -1,0 +1,9 @@
+.player {
+  margin: 0 auto;
+  width: 640px;
+  height: 360px;
+  border-radius: 10px;
+  border: 1px solid var(--background-accent);
+  overflow: hidden;
+  margin-bottom: 20px;
+}
