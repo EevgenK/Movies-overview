@@ -10,7 +10,7 @@ const YouTubePlayer = () => {
   //   const { details, isLoading } = useGetApiById(getVideos, id);
   //   console.log(details);
   const videoUrl = `https://www.youtube.com/watch?v=${"8Lld3U0sVho"}`;
-
+  // edit
   return (
     <div className={s.player}>
       <ReactPlayer url={videoUrl} />
