@@ -15,6 +15,7 @@ const MovieReviews = lazy(() =>
 
 import "./App.css";
 import Loader from "./components/Loader/Loader";
+import MovieTeasers from "./components/MovieTeasers/MovieTeasers";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
           <Route path="/movies/:id" element={<MovieDetailsPage />}>
             <Route path="cast" element={<MovieCast />} />
             <Route path="reviews" element={<MovieReviews />} />
+            <Route path="videos" element={<MovieTeasers />} />
           </Route>
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

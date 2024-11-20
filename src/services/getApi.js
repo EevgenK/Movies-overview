@@ -44,7 +44,7 @@ const getMovieReviews = async (movie_id) => {
 const getMovieVideos = async (movie_id) => {
   const { data } = await instance.get(`/3/movie/${movie_id}/videos`);
   const result = data.results;
-  console.log(result);
+
   return result;
 };
 export {

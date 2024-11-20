@@ -1,6 +1,6 @@
 import { Outlet, useLocation, useNavigate, useParams } from "react-router-dom";
 import { Suspense, useCallback, useEffect, useRef, useState } from "react";
-import { getMovieById } from "../../services/getApi";
+import { getMovieById, getMovieVideos } from "../../services/getApi";
 import MovieCard from "../../components/MovieCard/MovieCard";
 import getBackGround from "../../services/getBackGround";
 import Loader from "../../components/Loader/Loader";
@@ -9,6 +9,7 @@ import Navigation from "../../components/Navigation/Navigation";
 
 import { PiApplePodcastsLogoFill } from "react-icons/pi";
 import { MdOutlineRateReview } from "react-icons/md";
+import { RiVideoFill } from "react-icons/ri";
 
 import s from "./MovieDetailsPage.module.css";
 import YouTubePlayer from "../../components/YouTubePlayer/YouTubePlayer";
@@ -17,6 +18,7 @@ const MovieDetailsPage = () => {
   const [movie, setMovie] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const { id } = useParams();
+  const [videoUrl, setVideoUrl] = useState(null);
   const navigate = useNavigate();
 
   const location = useLocation();
@@ -40,6 +42,21 @@ const MovieDetailsPage = () => {
     getMoviesDetails();
   }, [id, setIsLoading]);
 
+  useEffect(() => {
+    if (!id) return;
+    const getVideoUrl = async () => {
+      try {
+        const results = await getMovieVideos(id);
+        const url = results.find((el) => el.type === "Teaser");
+
+        setVideoUrl(url.key);
+      } catch (err) {
+        console.error(err.message);
+      }
+    };
+    getVideoUrl();
+  }, [id]);
+
   const goBack = useCallback(() => navigate(backLink.current), [navigate]);
 
   return (
@@ -54,6 +71,9 @@ const MovieDetailsPage = () => {
           <>
             <div className={s.box} style={movie?.backdrop_path}>
               <MovieCard items={movie} />
+              {videoUrl && (
+                <YouTubePlayer className={s.player} url={videoUrl} />
+              )}
               <div className={s.additional}>
                 <Navigation
                   links={[
@@ -61,12 +81,19 @@ const MovieDetailsPage = () => {
                       cast: "cast",
                       icon: <PiApplePodcastsLogoFill className={s.icon} />,
                     },
-                    { reviews: "reviews", icon: <MdOutlineRateReview /> },
+                    {
+                      reviews: "reviews",
+                      icon: <MdOutlineRateReview className={s.icon} />,
+                    },
+                    {
+                      "more teasers": "videos",
+                      icon: <RiVideoFill className={s.icon} />,
+                    },
                   ]}
                 />
               </div>
             </div>
-            <YouTubePlayer videoKey={"mmbLQNsZqh0"} />
+
             <Suspense fallback={<Loader />}>
               <Outlet />
             </Suspense>
