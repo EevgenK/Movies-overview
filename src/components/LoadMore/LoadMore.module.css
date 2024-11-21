@@ -1,0 +1,30 @@
+.buttons {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 10px;
+}
+.btn {
+  text-transform: uppercase;
+  padding: 10px;
+  background-color: var(--background-accent);
+  color: var(--second-text-color);
+  border: 1px solid var(--background-accent);
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.75);
+  transition: background-color var(--animation-mode);
+
+  &:hover,
+  &:focus {
+    background-color: var(--second-color);
+  }
+  &[disabled] {
+    color: rgb(168, 168, 168);
+    cursor: no-drop;
+    background-color: #dbdbdb;
+  }
+}
+.pages {
+  text-transform: uppercase;
+  color: var(--second-text-color);
+}

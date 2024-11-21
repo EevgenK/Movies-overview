@@ -17,10 +17,11 @@ const getTrendMovies = async () => {
   const { data } = await instance.get("/3/trending/movie/day");
   return data;
 };
-const getMovies = async (query) => {
+const getMovies = async (query, page) => {
   const { data } = await instance.get("/3/search/movie", {
     params: {
       query,
+      page,
     },
   });
 
