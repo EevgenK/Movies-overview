@@ -1,13 +1,17 @@
 import { Link } from "react-router-dom";
 import Notification from "../../components/Notification/Notification";
-
+import locale from "./locale.json";
+import useLanguage from "../../hooks/useLanguage";
 const NotFoundPage = () => {
+  const { lang } = useLanguage();
   return (
     <main className="container">
       <Notification>
-        <h1>NOT FOUND PAGE</h1>
+        <h1>{locale.title[lang]}</h1>
         <p>
-          Follow this <Link to="/">link</Link> please
+          {locale.message[lang][0]}{" "}
+          <Link to="/">{locale.message[lang][1]}</Link>
+          {locale.message[lang][2]}
         </p>
       </Notification>
     </main>
