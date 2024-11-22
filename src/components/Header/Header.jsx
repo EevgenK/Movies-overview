@@ -5,11 +5,13 @@ import LanguageSwitcher from "../LanguageSwitcher/LanguageSwitcher";
 import useLanguage from "../../hooks/useLanguage";
 import locale from "./locale.json";
 import s from "./Header.module.css";
+import Logo from "../Logo/Logo";
 
 const Header = () => {
   const { lang } = useLanguage();
   return (
     <header className={s.header}>
+      <Logo />
       <Navigation
         links={[
           { [locale.links[lang][0]]: "/", icon: <ImHome /> },

@@ -3,6 +3,7 @@
   justify-content: space-around;
   align-items: center;
   margin-bottom: 10px;
+  gap: 10px;
 }
 .btn {
   text-transform: uppercase;
@@ -26,6 +27,7 @@
   }
 }
 .pages {
+  text-align: center;
   font-size: 14px;
   text-transform: uppercase;
   color: var(--second-text-color);

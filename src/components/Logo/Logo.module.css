@@ -1,0 +1,16 @@
+.wrap {
+  border: 10px var(--second-color);
+  border-style: double dashed;
+  border-radius: 50%;
+  padding: 6px 8px;
+  text-align: center;
+}
+
+.logo {
+  color: var(--second-color);
+  font-size: 25px;
+  cursor: pointer;
+  @media (min-width: 768px) {
+    font-size: 40px;
+  }
+}

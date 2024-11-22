@@ -16,6 +16,7 @@ const MovieReviews = lazy(() =>
 import "./App.css";
 import Loader from "./components/Loader/Loader";
 import MovieTeasers from "./components/MovieTeasers/MovieTeasers";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </Suspense>
+      <Footer />
     </div>
   );
 }
