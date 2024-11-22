@@ -22,7 +22,6 @@ const MoviesPage = () => {
 
     const searchMovies = async () => {
       try {
-        console.log("hello");
         setIsLoading(true);
         setError(false);
 

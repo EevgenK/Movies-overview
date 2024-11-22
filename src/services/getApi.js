@@ -1,6 +1,8 @@
 import axios from "axios";
+
 const API_KEY = import.meta.env.VITE_API_KEY;
 const TOKEN = import.meta.env.VITE_API_TOKEN;
+
 const instance = axios.create({
   baseURL: "https://api.themoviedb.org",
   params: {
@@ -13,8 +15,13 @@ const instance = axios.create({
     },
   },
 });
-const getTrendMovies = async () => {
-  const { data } = await instance.get("/3/trending/movie/day");
+const getTrendMovies = async (language) => {
+  console.log(language);
+  const { data } = await instance.get("/3/trending/movie/day", {
+    params: {
+      language,
+    },
+  });
   return data;
 };
 const getMovies = async (query, page) => {
@@ -27,8 +34,12 @@ const getMovies = async (query, page) => {
 
   return data;
 };
-const getMovieById = async (movie_id) => {
-  const { data } = await instance.get(`/3/movie/${movie_id}`);
+const getMovieById = async (movie_id, language) => {
+  const { data } = await instance.get(`/3/movie/${movie_id}`, {
+    params: {
+      language,
+    },
+  });
   return data;
 };
 
@@ -42,8 +53,12 @@ const getMovieReviews = async (movie_id) => {
   const result = data.results;
   return result;
 };
-const getMovieVideos = async (movie_id) => {
-  const { data } = await instance.get(`/3/movie/${movie_id}/videos`);
+const getMovieVideos = async (movie_id, language) => {
+  const { data } = await instance.get(`/3/movie/${movie_id}/videos`, {
+    params: {
+      language,
+    },
+  });
   const result = data.results;
 
   return result;

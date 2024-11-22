@@ -5,12 +5,15 @@ import { Toaster } from "react-hot-toast";
 
 import App from "./App.jsx";
 import "./index.css";
+import { LanguageProvider } from "./context/LanguageProvider.jsx";
 
 createRoot(document.getElementById("root")).render(
   // <StrictMode>
   <>
     <BrowserRouter>
-      <App />
+      <LanguageProvider>
+        <App />
+      </LanguageProvider>
     </BrowserRouter>
     <Toaster
       position="top-center"

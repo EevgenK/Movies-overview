@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import { lazy, Suspense } from "react";
-import Navigation from "./components/Navigation/Navigation";
+import Header from "./components/Header/Header";
 
 const HomePage = lazy(() => import("./pages/HomePage/HomePage"));
 const MoviesPage = lazy(() => import("./pages/MoviesPage/MoviesPage"));
@@ -20,7 +20,7 @@ import MovieTeasers from "./components/MovieTeasers/MovieTeasers";
 function App() {
   return (
     <div className="section">
-      <Navigation links={[{ home: "/" }, { movies: "/movies" }]} main={true} />
+      <Header />
       <Suspense fallback={<Loader />}>
         <Routes>
           <Route path="/" element={<HomePage />} />

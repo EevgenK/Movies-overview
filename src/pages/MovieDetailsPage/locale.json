@@ -1,0 +1,14 @@
+{
+  "button": {
+    "ua": "назад",
+    "en": "go back"
+  },
+  "message": {
+    "ua": "Лишенько. Щось пішло не так. Будь-ласка, спробуйте пізніше",
+    "en": "Something went wrong! Please try again later"
+  },
+  "links": {
+    "ua": ["актори", "відгуки", "більше трейлерів"],
+    "en": ["cast", "reviews", "more teasers"]
+  }
+}
