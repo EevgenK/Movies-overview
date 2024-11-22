@@ -14,5 +14,10 @@
   "genres": {
     "ua": "Жанри",
     "en": "Genres"
+  },
+
+  "release": {
+    "ua": "Дата релізу",
+    "en": "Release date"
   }
 }
