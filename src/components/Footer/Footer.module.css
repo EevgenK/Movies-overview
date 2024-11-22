@@ -16,6 +16,7 @@
   position: fixed;
   left: 6%;
   bottom: 6%;
+  transform: translate(-6%, -6%);
   font-size: 50px;
 
   color: var(--accent-color);
