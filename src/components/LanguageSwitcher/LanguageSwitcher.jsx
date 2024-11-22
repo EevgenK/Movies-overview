@@ -19,8 +19,8 @@ const LanguageSwitcher = () => {
   };
   return (
     <select className={s.lang} onChange={onHandleChange}>
-      <option value="en">English</option>
-      <option value="uk">Ukranian</option>
+      <option value="en">EN</option>
+      <option value="uk">UA</option>
     </select>
   );
 };

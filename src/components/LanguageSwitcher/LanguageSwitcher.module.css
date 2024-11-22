@@ -1,9 +1,12 @@
 .lang {
+  padding: 4px;
   border-radius: 10px;
   background-color: var(--second-color);
   color: var(--accent-color);
   border: 1px solid var(--second-color);
   cursor: pointer;
+  max-height: 40px;
+
   &:focus,
   &:hover {
     border-color: var(--second-color);

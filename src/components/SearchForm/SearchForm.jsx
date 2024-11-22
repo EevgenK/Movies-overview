@@ -1,8 +1,11 @@
 import { ImSearch } from "react-icons/im";
 import { useState } from "react";
+import useLanguage from "../../hooks/useLanguage";
+import locale from "./locale.json";
 import s from "./SearchForm.module.css";
 
 const SearchForm = ({ onSubmit }) => {
+  const { lang } = useLanguage();
   const [search, setSearch] = useState("");
 
   const onHandleChange = (e) => {
@@ -26,7 +29,7 @@ const SearchForm = ({ onSubmit }) => {
         type="text"
         autoComplete="off"
         autoFocus
-        placeholder="Search movies"
+        placeholder={locale.placeholder[lang]}
       />
       <button className={s.button} type="submit">
         <ImSearch className={s.icon} />

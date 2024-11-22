@@ -1,6 +1,14 @@
 .navigation {
   display: flex;
   justify-content: space-between;
+  gap: 10px;
+  & > .list {
+    font-size: 14px;
+    flex-wrap: nowrap;
+    @media (min-width: 768px) {
+      font-size: 20px;
+    }
+  }
 }
 
 .list {

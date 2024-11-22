@@ -1,0 +1,18 @@
+{
+  "message": {
+    "ua": "Лишенько. Щось пішло не так. Будь-ласка, спробуйте пізніше.",
+    "en": "Something went wrong! Please try again later."
+  },
+  "no_movies": {
+    "ua": "На жаль, фільмів за вашим запитом немає. Спробуйте інший запит.",
+    "en": "Unfortunately,  there`s no movies on your request. Please try another request."
+  },
+  "empty_search": {
+    "ua": "Вибачте, але рядок пошуку не може бути порожнім! Будь ласка, спробуйте ще раз.",
+    "en": "Sorry, the search-bar can't be empty! Please, try again."
+  },
+  "title": {
+    "ua": "Загальний результат від запиту",
+    "en": "Total result of request"
+  }
+}

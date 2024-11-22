@@ -43,8 +43,12 @@ const getMovieById = async (movie_id, language) => {
   return data;
 };
 
-const getMovieCredits = async (movie_id) => {
-  const { data } = await instance.get(`/3/movie/${movie_id}/credits`);
+const getMovieCredits = async (movie_id, language) => {
+  const { data } = await instance.get(`/3/movie/${movie_id}/credits`, {
+    params: {
+      language,
+    },
+  });
   const result = data.cast;
   return result;
 };

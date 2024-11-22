@@ -1,0 +1,18 @@
+{
+  "overview": {
+    "ua": "Опис",
+    "en": "Overview"
+  },
+  "user_scores": {
+    "ua": "Оцінки користувачів",
+    "en": "User Scores"
+  },
+  "budget": {
+    "ua": "Бюджет",
+    "en": "Budget"
+  },
+  "genres": {
+    "ua": "Жанри",
+    "en": "Genres"
+  }
+}

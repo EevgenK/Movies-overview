@@ -6,17 +6,22 @@ import { defaultImg } from "../../services/defaultValues";
 import Loader from "../Loader/Loader";
 import useGetApiById from "../../hooks/useGetApiById";
 import Notification from "../Notification/Notification";
-
+import locale from "./locale.json";
 import s from "./MovieCast.module.css";
+import useLanguage from "../../hooks/useLanguage";
 
 const MovieCast = () => {
+  const { lang, langApi } = useLanguage();
   const { id } = useParams();
-  const getCredits = useCallback(() => getMovieCredits(id), [id]);
+  const getCredits = useCallback(
+    () => getMovieCredits(id, langApi),
+    [id, langApi]
+  );
   const { details, isLoading } = useGetApiById(getCredits, id);
 
   const items = !details.length ? (
     <Notification>
-      <p>We don`t have any information about the cast of this movie</p>
+      <p>{locale.notification[lang]}</p>
     </Notification>
   ) : (
     details.map(({ id, profile_path, name, character }) => {
@@ -33,7 +38,9 @@ const MovieCast = () => {
           />
           <div className={s.wrapper}>
             <h4>{name}</h4>
-            <p>Character: {character}</p>
+            <p>
+              {locale.character[lang]}: {character}
+            </p>
           </div>
         </li>
       );

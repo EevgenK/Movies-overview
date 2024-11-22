@@ -8,9 +8,12 @@ import MovieList from "../../components/MovieList/MovieList";
 import useLoaderAndError from "../../hooks/useLoaderAndError";
 import { getMovies } from "../../services/getApi";
 import LoadMoreBtns from "../../components/LoadMore/LoadMore";
+import useLanguage from "../../hooks/useLanguage";
+import locale from "./locale.json";
 import s from "./MoviesPage.module.css";
 
 const MoviesPage = () => {
+  const { lang } = useLanguage();
   const [totalPages, setTotalPages] = useState(0);
   const [films, setFilms] = useState([]);
   const { error, setError, isLoading, setIsLoading } = useLoaderAndError();
@@ -24,15 +27,13 @@ const MoviesPage = () => {
       try {
         setIsLoading(true);
         setError(false);
-
+        setFilms([]);
         const { results, total_pages, total_results } = await getMovies(
           search,
           page
         );
         if (!results.length) {
-          toast.error(
-            "Unfortunately,  there`s no movies on your request. Please try another request"
-          );
+          toast.error(locale.no_movies[lang]);
         } else {
           setFilms((prevFilms) => [...prevFilms, ...results]);
           setTotalPages({ total_pages, total_results });
@@ -40,19 +41,19 @@ const MoviesPage = () => {
       } catch (err) {
         setError(true);
         console.error(err.message);
-        toast.error("Something went wrong! Please try again later");
+        toast.error(locale.message[lang]);
       } finally {
         setIsLoading(false);
       }
     };
 
     searchMovies();
-  }, [search, page, setError, setIsLoading]);
+  }, [search, page, setError, setIsLoading, lang]);
 
   const onHandleSearch = (query) => {
     setSearchMoviesList("");
     if (!query) {
-      toast.error("Sorry, the search-bar can't be empty! Please, try again.");
+      toast.error(locale.empty_search[lang]);
       return;
     }
     setFilms([]);
@@ -75,8 +76,8 @@ const MoviesPage = () => {
         <SearchForm onSubmit={onHandleSearch} />
         {!!totalPages.total_results && (
           <h4>
-            Total result of request <span>&quot;{search}&quot;</span> is{" "}
-            {totalPages.total_results}.
+            {locale.title[lang]} <span>&quot;{search}&quot;</span>:{" "}
+            {totalPages.total_results}
           </h4>
         )}
       </div>
@@ -85,10 +86,13 @@ const MoviesPage = () => {
       )}
       {error && (
         <Notification>
-          <p>Something went wrong! Please try again later</p>
+          <p>{locale.message[lang]}</p>
         </Notification>
       )}
       {isLoading ? <Loader /> : !!films.length && <MovieList items={films} />}
+      {!!films.length && (
+        <LoadMoreBtns page={page} pages={totalPages} setPage={handleSetPage} />
+      )}
     </main>
   );
 };

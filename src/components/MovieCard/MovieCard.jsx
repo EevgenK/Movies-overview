@@ -1,4 +1,6 @@
+import useLanguage from "../../hooks/useLanguage";
 import { defaultImg } from "../../services/defaultValues";
+import locale from "./locale.json";
 import s from "./MovieCard.module.css";
 
 const MovieCard = ({
@@ -12,6 +14,7 @@ const MovieCard = ({
     release_date,
   },
 }) => {
+  const { lang } = useLanguage();
   const items = genres.map(({ id, name }) => <li key={id}>{name}</li>);
   const year = new Date(release_date).getFullYear();
   return (
@@ -29,16 +32,18 @@ const MovieCard = ({
         <h1>
           {title} {release_date && `(${year})`}
         </h1>
-        <p>{`User Scores: ${Math.round(vote_average * 10)}%`}</p>
+        <p>{`${locale.user_scores[lang]}: ${Math.round(
+          vote_average * 10
+        )}%`}</p>
         {overview && (
           <div>
-            <h2>Overview</h2>
+            <h2>{locale.overview[lang]}:</h2>
             <p>{overview}</p>
           </div>
         )}
         {!!budget && (
           <>
-            <h3>Budget</h3>
+            <h3>{locale.budget[lang]}:</h3>
             <p>
               {budget.toLocaleString("en-US", {
                 style: "currency",
@@ -49,7 +54,7 @@ const MovieCard = ({
         )}
         {!!genres.length && (
           <div>
-            <h3>Genres</h3>
+            <h3>{locale.genres[lang]}:</h3>
             <ul className={s.genres}>{items}</ul>
           </div>
         )}
