@@ -1,8 +1,11 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import s from "./LanguageSwitcher.module.css";
+import locale from "./locale.json";
 import { languageContext } from "../../context/LanguageProvider";
+import useLanguage from "../../hooks/useLanguage";
 
 const LanguageSwitcher = () => {
+  const [currentLang, setCurrentLang] = useState(useLanguage().lang);
   const { lang, setLanguage } = useContext(languageContext);
   const onHandleChange = (e) => {
     switch (e.target.value) {
@@ -15,12 +18,16 @@ const LanguageSwitcher = () => {
       default:
         break;
     }
-    console.log(e.target.value);
   };
+
   return (
     <select className={s.lang} onChange={onHandleChange}>
-      <option value="en">EN</option>
-      <option value="uk">UA</option>
+      <option value={locale.value[currentLang]}>
+        {locale.language[currentLang]}
+      </option>
+      <option value={currentLang === "ua" ? "en" : "uk"}>
+        {currentLang === "ua" ? "EN" : "UA"}
+      </option>
     </select>
   );
 };

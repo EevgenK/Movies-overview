@@ -55,9 +55,7 @@ const MovieCard = ({
         {!!release_date && (
           <>
             <h3>{locale.release[lang]}:</h3>
-            <p>
-              <p>{release_date}</p>
-            </p>
+            <p>{release_date}</p>
           </>
         )}
         {!!genres.length && (

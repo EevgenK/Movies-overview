@@ -6,7 +6,7 @@ const YouTubePlayer = ({ url }) => {
 
   return (
     <div className={s.player}>
-      <ReactPlayer url={videoUrl} loop="true" controls="true" />
+      <ReactPlayer url={videoUrl} loop={true} controls={true} />
     </div>
   );
 };
