@@ -6,15 +6,18 @@ import { defaultImg } from "../../services/defaultValues";
 import useGetApiById from "../../hooks/useGetApiById";
 import Notification from "../Notification/Notification";
 import s from "./MovieReviews.module.css";
+import useLanguage from "../../hooks/useLanguage";
+import locale from "./locale.json";
 
 const MovieReviews = () => {
+  const { lang, langApi } = useLanguage();
   const { id } = useParams();
   const getCredits = useCallback(() => getMovieReviews(id), [id]);
   const { details, isLoading } = useGetApiById(getCredits, id);
 
   const items = !details.length ? (
     <Notification>
-      <p>We don`t have any reviews on this movie</p>
+      <p>{locale.notification[lang]}</p>
     </Notification>
   ) : (
     details.map(({ id, author_details, author, content }) => {

@@ -4,7 +4,7 @@
   padding-bottom: 40px;
   text-align: center;
   color: var(--accent-color);
-  background-color: grey;
+  background-color: var(--background-transparent);
   border: 6px solid red;
 }
 .icon {

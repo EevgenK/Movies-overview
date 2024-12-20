@@ -3,14 +3,14 @@
   --second-color: rgb(11, 11, 104);
   --accent-color: rgb(229, 229, 238);
   --second-text-color: white;
-  --background-accent: rgb(190, 186, 177);
-  --background-transparent: rgba(190, 186, 177, 0.795);
+  --background-accent: rgb(18, 73, 124);
+  --background-transparent: rgba(96, 154, 241, 0.795);
   --animation-mode: 250ms cubic-bezier(0.4, 0, 0.2, 1);
   --liner-gradient: linear-gradient(
     to right,
-    rgba(31.5, 10.5, 10.5, 1) calc((50vw - 170px) - 340px),
-    rgba(31.5, 10.5, 10.5, 0.84) 50%,
-    rgba(31.5, 10.5, 10.5, 0.84) 100%
+    rgba(96, 154, 241, 1) calc((50vw - 170px) - 340px),
+    rgba(96, 154, 241, 0.595) 50%,
+    rgba(96, 154, 241, 0.595) 100%
   );
 }
 
